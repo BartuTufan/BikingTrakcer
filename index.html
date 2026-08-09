@@ -134,7 +134,7 @@
 
         window.surusSilBulut = async function() {
             const firebaseId = document.getElementById('duzenleFirebaseId').value;
-            if (confirm("Bu sürüşü buluttan silmek istediğinizden emin misiniz?")) {
+            if (confirm("Bu sürüşü silmek istediğinizden emin misiniz?")) {
                 try {
                     await deleteDoc(doc(db, "ortak_veri", "bisiklet_app", "suruslar", firebaseId));
                     surusModalKapat();
@@ -169,7 +169,7 @@
 
         window.hedefSilBulut = async function() {
             const firebaseId = document.getElementById('hedefFirebaseIdInput').value;
-            if (confirm("Bu hedefi buluttan silmek istediğinizden emin misiniz?")) {
+            if (confirm("Bu hedefi silmek istediğinizden emin misiniz?")) {
                 try {
                     await deleteDoc(doc(db, "ortak_veri", "bisiklet_app", "hedefler", firebaseId));
                     hedefModalKapat();
@@ -239,7 +239,7 @@
                     <button onclick="switchTab('hedefler')" class="text-xs text-emerald-400 hover:underline">Tümünü Yönet</button>
                 </div>
                 <div id="anaSayfaHedeflerContainer" class="space-y-4">
-                    <p class="text-slate-500 text-sm text-center py-2">Buluttan veriler yükleniyor...</p>
+                    <p class="text-slate-500 text-sm text-center py-2">Veriler yükleniyor...</p>
                 </div>
             </div>
 
@@ -286,7 +286,7 @@
                             <input type="number" id="maxHizInput" step="0.1" required class="w-full bg-[#1f2937] border border-slate-700/80 rounded-xl p-3 text-white placeholder-slate-500 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition text-sm" placeholder="Örn: 45.0">
                         </div>
                         <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl shadow-lg shadow-emerald-900/30 transition duration-200 mt-2 text-sm">
-                            Buluta Kaydet
+                            Kaydet
                         </button>
                     </form>
                 </div>
@@ -326,7 +326,7 @@
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-[#111827] p-5 sm:p-6 rounded-2xl border border-slate-800/80 shadow-sm">
                 <div>
                     <h2 class="text-lg sm:text-xl font-bold text-white">Antrenman Hedeflerim</h2>
-                    <p class="text-xs text-slate-400 mt-1">Bulutta senkronize kişisel hedefler</p>
+                    <p class="text-xs text-slate-400 mt-1">Kişisel hedefler</p>
                 </div>
                 <button onclick="hedefModalAc()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
                     <span>+</span> Hedef Ekle
@@ -396,7 +396,7 @@
                 <div class="flex items-center space-x-2 pt-2">
                     <button type="button" id="hedefSilBtn" onclick="hedefSilBulut()" class="hidden bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 font-semibold px-4 py-3 rounded-xl transition text-sm">Sil</button>
                     <button type="button" onclick="hedefModalKapat()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold py-3 rounded-xl transition text-sm">İptal</button>
-                    <button type="submit" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl shadow-lg transition text-sm">Buluta Kaydet</button>
+                    <button type="submit" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl shadow-lg transition text-sm">Kaydet</button>
                 </div>
             </form>
         </div>
@@ -531,7 +531,7 @@
             sonListe.innerHTML = '';
             
             if (suruslar.length === 0) {
-                sonListe.innerHTML = `<p class="text-slate-500 text-sm text-center py-4">Bulutta kayıtlı sürüş bulunmuyor.</p>`;
+                sonListe.innerHTML = `<p class="text-slate-500 text-sm text-center py-4">Kayıtlı sürüş bulunmuyor.</p>`;
             } else {
                 suruslar.slice(0, 3).forEach(s => {
                     sonListe.innerHTML += olusturSurusHTML(s, false);
@@ -542,7 +542,7 @@
             container.innerHTML = '';
 
             if (suruslar.length === 0) {
-                container.innerHTML = `<p class="text-slate-500 text-sm text-center py-6">Bulutta kayıtlı sürüş bulunmuyor.</p>`;
+                container.innerHTML = `<p class="text-slate-500 text-sm text-center py-6">Kayıtlı sürüş bulunmuyor.</p>`;
             } else {
                 let agacYapisi = {};
                 suruslar.forEach(s => {
@@ -636,7 +636,7 @@
             container.innerHTML = '';
 
             if (hedefler.length === 0) {
-                container.innerHTML = `<p class="text-slate-500 text-sm text-center py-2">Bulutta aktif hedef bulunmuyor.</p>`;
+                container.innerHTML = `<p class="text-slate-500 text-sm text-center py-2">Aktif hedef bulunmuyor.</p>`;
                 return;
             }
 
@@ -697,7 +697,7 @@
             container.innerHTML = '';
 
             if (hedefler.length === 0) {
-                container.innerHTML = `<p class="text-slate-500 text-sm col-span-2 text-center py-6">Bulutta kayıtlı hedef bulunmuyor.</p>`;
+                container.innerHTML = `<p class="text-slate-500 text-sm col-span-2 text-center py-6">Kayıtlı hedef bulunmuyor.</p>`;
                 return;
             }
 
